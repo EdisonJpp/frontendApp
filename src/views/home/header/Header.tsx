@@ -8,9 +8,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+// import AccountCircle from '@material-ui/icons/AccountCircle';
+// import MailIcon from '@material-ui/icons/Mail';
+// import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Container from '@material-ui/core/Container';
 import ViewHeaderCart from "../../../componets/shopping-cart/RightHeaderView";
@@ -40,7 +40,7 @@ function HeaderView() {
         </Menu>
 
     );
-    
+
     /// Render Screen Movile
     const mobileMenuId = 'primary-search-account-menu-mobile';
     const renderMobileMenu = (
@@ -53,8 +53,26 @@ function HeaderView() {
             open={isMobileMenuOpen || false}
             onClose={actions.handleMobileMenuClose}
         >
-            <MenuItem>
-                <IconButton aria-label="show 4 new mails" color="inherit">
+            <MenuItem className={classes.menuItemMovil}>
+                <div className="cart" style={{ alignSelf: "center" }}>
+                    <Badge badgeContent={7} color="secondary">
+                        <ViewHeaderCart />
+                    </Badge>
+                </div>
+
+                <IconButton
+                    edge="end"
+                    aria-controls={menuId}
+                    aria-haspopup="true"
+                    onClick={actions.handleProfileMenuOpen}
+                    color="inherit"
+                >
+                    <ViewHeaderUser />
+                </IconButton>
+
+                <SaleButton />
+
+                {/* <IconButton aria-label="show 4 new mails" color="inherit">
                     <Badge badgeContent={4} color="secondary">
                         <MailIcon />
                     </Badge>
@@ -78,19 +96,21 @@ function HeaderView() {
                 >
                     <AccountCircle />
                 </IconButton>
-                <p>Profile</p>
+                <p>Profile</p> */}
             </MenuItem>
         </Menu>
     );
 
     return (
         <div className="header">
-            <header className="header" style={{ backgroundColor: "#eeee" }} >
+            <header className="header" style={{ backgroundColor: "#" , borderBottom : " 1px solid #3333" , border : "1 px solid #3333" }} >
 
                 <Container className={classes.grow}>
                     <Toolbar>
+                        {/* <img src={Logo} alt="logo " width=" 100px" /> */}
                         <Typography className={classes.title} variant="h6" noWrap>
-                            Material-UI
+                            Edison's store
+
   </Typography>
                         <IconButton
                             edge="start"

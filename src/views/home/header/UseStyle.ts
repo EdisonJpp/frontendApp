@@ -9,7 +9,7 @@ export function UseStyle() {
                 flexGrow: 1,
             },
             menuButton: {
-                // display: "none",
+                display: "none",    
                 [theme.breakpoints.up('md')]: {
                     marginLeft: theme.spacing(2),
                 }
@@ -69,11 +69,21 @@ export function UseStyle() {
                 },
             },
             sectionMobile: {
-                display: 'flex',
+                // display: 'flex',
+                // width : '100%',
+                // flexDirection: 'column',
                 [theme.breakpoints.up('md')]: {
                     display: 'none',
                 }
             },
+            menuItemMovil :{
+                display : 'flex',
+                width : '260px',
+                justifyContent: 'space-between'
+                // flexDirection : 'column',
+                // marginTop : '5px',
+                // marginBottom :  '5px',
+            }
         }),
     );
 

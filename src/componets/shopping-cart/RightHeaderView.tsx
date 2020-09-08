@@ -12,8 +12,9 @@ function ViewHeaderCart (){
             root :{
                 fontSize : "30px",  
                 // color : '#bdbdbd' 757575
-                color : '#757575' 
+                color : "#757575" ,
                 // color : '#9e9e9e' ,
+                cursor : "pointer"
                 
             },
         })
