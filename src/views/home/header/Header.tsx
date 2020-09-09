@@ -13,14 +13,14 @@ import SearchIcon from '@material-ui/icons/Search';
 // import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Container from '@material-ui/core/Container';
-import ViewHeaderCart from "../../../componets/shopping-cart/RightHeaderView";
+import ViewHeaderCart from "../../../componets/shopping-cart/right-header-view/RightHeaderView";
 import ViewHeaderUser from "../../../componets/profile/profile-header-opctions/RightHeaderView";
 import SaleButton from "../../../componets/buttons/sale-button/SaleButton";
 import { UseStyle } from "./UseStyle";
 
 function HeaderView() {
 
-    const [{ classes, anchorEl, isMenuOpen, isMobileMenuOpen, mobileMoreAnchorEl }, actions] = UseStyle();
+    const [{ classes, anchorEl, isMenuOpen, isMobileMenuOpen, mobileMoreAnchorEl }, desingActions] = UseStyle();
 
     const menuId = 'primary-search-account-menu';
 
@@ -33,10 +33,11 @@ function HeaderView() {
             keepMounted
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
             open={isMenuOpen || false}
-            onClose={actions.handleMenuClose}
+            onClose={desingActions.handleMenuClose}
+        // onMouseLeave={desingActions.handleMenuClose}
         >
-            <MenuItem onClick={actions.handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={actions.handleMenuClose}>My account</MenuItem>
+            <MenuItem onClick={desingActions.handleMenuClose}>Profile</MenuItem>
+            <MenuItem onClick={desingActions.handleMenuClose}>My account</MenuItem>
         </Menu>
 
     );
@@ -51,7 +52,7 @@ function HeaderView() {
             keepMounted
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
             open={isMobileMenuOpen || false}
-            onClose={actions.handleMobileMenuClose}
+            onClose={desingActions.handleMobileMenuClose}
         >
             <MenuItem className={classes.menuItemMovil}>
                 <div className="cart" style={{ alignSelf: "center" }}>
@@ -64,10 +65,13 @@ function HeaderView() {
                     edge="end"
                     aria-controls={menuId}
                     aria-haspopup="true"
-                    onClick={actions.handleProfileMenuOpen}
+                    onClick={desingActions.handleProfileMenuOpen}
                     color="inherit"
                 >
-                    <ViewHeaderUser />
+                    <div>
+                        {/* <span> perfil </span> */}
+                        <ViewHeaderUser />
+                    </div>
                 </IconButton>
 
                 <SaleButton />
@@ -87,7 +91,7 @@ function HeaderView() {
                 </IconButton>
                 <p>Notifications</p>
             </MenuItem>
-            <MenuItem onClick={actions.handleProfileMenuOpen}>
+            <MenuItem onClick={desingActions.handleProfileMenuOpen}>
                 <IconButton
                     aria-label="account of current user"
                     aria-controls="primary-search-account-menu"
@@ -103,11 +107,12 @@ function HeaderView() {
 
     return (
         <div className="header">
-            <header className="header" style={{ backgroundColor: "#" , borderBottom : " 1px solid #3333" , border : "1 px solid #3333" }} >
+            <header className="header" style={{ backgroundColor: "#", borderBottom: " 1px solid #E6E7EB" }} >
 
                 <Container className={classes.grow}>
-                    <Toolbar>
+                    <Toolbar className={classes.tolbar}>
                         {/* <img src={Logo} alt="logo " width=" 100px" /> */}
+                        {/* <div> */}
                         <Typography className={classes.title} variant="h6" noWrap>
                             Edison's store
 
@@ -119,10 +124,9 @@ function HeaderView() {
                             aria-label="open drawer"
                         >
 
-
-
                             <MenuIcon />
                         </IconButton>
+
                         <div className={classes.search}>
                             <div className={classes.searchIcon}>
                                 <SearchIcon />
@@ -139,8 +143,6 @@ function HeaderView() {
                         <div className={classes.grow} />
                         <div className={classes.sectionDesktop}>
 
-
-
                             <div className="cart" style={{ alignSelf: "center" }}>
                                 <Badge badgeContent={7} color="secondary">
                                     <ViewHeaderCart />
@@ -151,7 +153,8 @@ function HeaderView() {
                                 edge="end"
                                 aria-controls={menuId}
                                 aria-haspopup="true"
-                                onClick={actions.handleProfileMenuOpen}
+                                onClick={desingActions.handleProfileMenuOpen}
+                                // onMouseEnter={desingActions.handleProfileMenuOpen}
                                 color="inherit"
                             >
                                 <ViewHeaderUser />
@@ -166,7 +169,7 @@ function HeaderView() {
                                 aria-label="show more"
                                 aria-controls={mobileMenuId}
                                 aria-haspopup="true"
-                                onClick={actions.handleMobileMenuOpen}
+                                onClick={desingActions.handleMobileMenuOpen}
                                 color="inherit"
                             >
                                 <MoreIcon />
@@ -175,9 +178,19 @@ function HeaderView() {
                     </Toolbar>
                     {renderMobileMenu}
                     {renderMenu}
+
                 </Container>
 
             </header>
+                {/* <div className={ "headerBottom"}  style={{borderBottom : "1px solid #E6E7EB"}}>
+                    <Container>
+                        <Grid xs={10}   >
+                            <span style={{marginLeft : "20px"}}> <strong>categorias   | </strong></span>
+                        
+                        </Grid>
+                        </Container>
+
+                </div> */}
         </div>
     );
 };

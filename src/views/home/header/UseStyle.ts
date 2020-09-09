@@ -9,15 +9,16 @@ export function UseStyle() {
                 flexGrow: 1,
             },
             menuButton: {
-                display: "none",    
-                [theme.breakpoints.up('md')]: {
-                    marginLeft: theme.spacing(2),
+                marginLeft: theme.spacing(2),
+                [theme.breakpoints.down('md')]: {
+                    display: "none",    
                 }
             },
             title: {
                 // display: 'none',
                 [theme.breakpoints.up('sm')]: {
                     display: 'block',
+                    alignSelf : 'center'
                 },
             },
             search: {
@@ -27,7 +28,7 @@ export function UseStyle() {
                 '&:hover': {
                     backgroundColor: fade(theme.palette.common.white, 0.25),
                 },
-                marginRight: theme.spacing(2),
+                // marginRight: theme.spacing(2),
                 marginLeft: 0,
                 width: '100%',
                 [theme.breakpoints.up('sm')]: {
@@ -65,7 +66,7 @@ export function UseStyle() {
                 [theme.breakpoints.up('md')]: {
                     display: 'flex',
                     justifyContent: 'space-between ',
-                    width: "27%"
+                    width: "30%"
                 },
             },
             sectionMobile: {
@@ -83,6 +84,9 @@ export function UseStyle() {
                 // flexDirection : 'column',
                 // marginTop : '5px',
                 // marginBottom :  '5px',
+            },
+            tolbar : {
+                // borderBottom : "1px solid #3333",
             }
         }),
     );
@@ -126,6 +130,5 @@ export function UseStyle() {
             handleMobileMenuClose,
             handleMobileMenuOpen,
             setMobileMoreAnchorEl,
-            useStyles,
         }];
 } 
