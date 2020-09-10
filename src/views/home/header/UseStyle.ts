@@ -66,7 +66,8 @@ export function UseStyle() {
                 [theme.breakpoints.up('md')]: {
                     display: 'flex',
                     justifyContent: 'space-between ',
-                    width: "30%"
+                    width: "30%",
+                    alignItems : "center",  
                 },
             },
             sectionMobile: {

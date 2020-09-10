@@ -9,10 +9,10 @@ import Menu from '@material-ui/core/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Container from '@material-ui/core/Container';
-import ViewHeaderCart from "../../../componets/shopping-cart/right-header-view/RightHeaderView";
-import ViewHeaderUser from "../../../componets/profile/profile-header-opctions/RightHeaderView";
-import SaleButton from "../../../componets/buttons/sale-button/SaleButton";
-import CategoriesView from '../../../componets/categories/category-options/CategoriesView' ;
+import ViewHeaderCart from "../../../components/shopping-cart/right-header-view/RightHeaderView";
+import ViewHeaderUser from "../../../components/profile/profile-header-opctions/RightHeaderView";
+import SaleButton from "../../../components/buttons/sale-button/SaleButton";
+import CategoriesView from '../../../components/categories/category-options/CategoriesView';
 import { UseStyle } from "./UseStyle";
 
 function HeaderView() {
@@ -61,20 +61,15 @@ function HeaderView() {
 
                 <Container className={classes.grow}>
                     <Toolbar className={classes.tolbar}>
-                 
+
                         <Typography className={classes.title} variant="h6" noWrap>
                             Edison's store
 
   </Typography>
-                        <IconButton
-                            edge="start"
-                            className={classes.menuButton}
-                            color="inherit"
-                            aria-label="open drawer"
-                        >
 
+                        <div className="categoryOpcion">
                             <CategoriesView />
-                        </IconButton>
+                        </div>
 
                         <div className={classes.search}>
                             <div className={classes.searchIcon}>
@@ -92,20 +87,16 @@ function HeaderView() {
                         <div className={classes.grow} />
                         <div className={classes.sectionDesktop}>
 
-                            <div className="cart" style={{ alignSelf: "center" }}>
+                            <div className="cart" >
                                 <Badge badgeContent={7} color="secondary">
                                     <ViewHeaderCart />
                                 </Badge>
-                            </div>
+                            </div>  
 
-                            <IconButton
-                                edge="end"
-                                aria-controls={menuId}
-                                aria-haspopup="true"
-                                color="inherit"
-                            >
+
+                            <div className="userOpcion">
                                 <ViewHeaderUser />
-                            </IconButton>
+                            </div>
 
                             <SaleButton />
                             <SaleButton />
