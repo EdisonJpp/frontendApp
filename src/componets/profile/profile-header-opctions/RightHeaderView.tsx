@@ -1,28 +1,21 @@
-import React from "react" ; 
+import React from "react";
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
-import { makeStyles, Theme  ,createStyles} from '@material-ui/core/styles';
+import OcptionInHeader from './Opctions';
+import UseStyles from './UseStyle';
 
+function ViewHeaderUser() {
 
+    const [{ styles }] = UseStyles();
 
-function ViewHeaderUser (){
+    return (
+        <div className="popover__wrapper">
+            <span >
+                <AccountCircleOutlinedIcon className={styles.root} />
+            </span>
 
-
-
-    const style = makeStyles((theme : Theme)=>
-    createStyles({
-        root :{
-            fontSize : "35px",  
-            color : '#757575',
-        },
-    })
-    ); 
-    const styles = style();
-
-    
-    return(
-
-        <div className="user-Icon">
-            <AccountCircleOutlinedIcon className={styles.root}  />
+            <div className="popover__content">
+                <OcptionInHeader />
+            </div>
         </div>
     );
 }
