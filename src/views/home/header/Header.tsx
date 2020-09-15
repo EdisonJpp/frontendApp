@@ -1,59 +1,19 @@
 import React from "react";
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import MoreIcon from '@material-ui/icons/MoreVert';
 import Container from '@material-ui/core/Container';
 import ViewHeaderCart from "../../../components/shopping-cart/right-header-view/RightHeaderView";
 import ViewHeaderUser from "../../../components/profile/profile-header-opctions/RightHeaderView";
 import SaleButton from "../../../components/buttons/sale-button/SaleButton";
 import CategoriesView from '../../../components/categories/category-options/CategoriesView';
 import { UseStyle } from "./UseStyle";
+import MobileOption from "../../../components/mobileSection/options/Index";
 
 function HeaderView() {
 
-    const [{ classes, isMobileMenuOpen, mobileMoreAnchorEl }, desingActions] = UseStyle();
-
-    const menuId = 'primary-search-account-menu';
-
-
-    /// Render Screen Movile
-    const mobileMenuId = 'primary-search-account-menu-mobile';
-    const renderMobileMenu = (
-        <Menu
-            anchorEl={mobileMoreAnchorEl}
-            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-            id={mobileMenuId}
-            keepMounted
-            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            open={isMobileMenuOpen || false}
-            onClose={desingActions.handleMobileMenuClose}
-        >
-            <MenuItem className={classes.menuItemMovil}>
-                <div className="cart" style={{ alignSelf: "center" }}>
-                    <Badge badgeContent={7} color="secondary">
-                        <ViewHeaderCart />
-                    </Badge>
-                </div>
-                <IconButton
-                    edge="end"
-                    aria-controls={menuId}
-                    aria-haspopup="true"
-                    color="inherit"
-                >
-                    <div>
-                        <ViewHeaderUser />
-                    </div>
-                </IconButton>
-                <SaleButton />
-            </MenuItem>
-        </Menu>
-    );
+    const [{ classes }] = UseStyle();
 
     return (
         <div className="header">
@@ -62,12 +22,15 @@ function HeaderView() {
                 <Container className={classes.grow}>
                     <Toolbar className={classes.tolbar}>
 
-                        <Typography className={classes.title} variant="h6" noWrap>
-                            Edison's store
+                        <img width="170px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRjZ4IMbuFDVYFsDLvbl2eab6r7_iSZK265RV14OUgflw&usqp=CAU&ec=45699843" alt="edison" />
 
-  </Typography>
+                        <MobileOption />
 
-                        <div className="categoryOpcion">
+                        <div className={classes.saleButtonMobil} >
+                        <SaleButton />
+                        </div>
+
+                        <div className={classes.menuButton}>
                             <CategoriesView />
                         </div>
 
@@ -84,39 +47,25 @@ function HeaderView() {
                                 inputProps={{ 'aria-label': 'search' }}
                             />
                         </div>
-                        <div className={classes.grow} />
-                        <div className={classes.sectionDesktop}>
 
+                        <div className={classes.grow} />
+
+                        <div className={classes.sectionDesktop}>
                             <div className="cart" >
                                 <Badge badgeContent={7} color="secondary">
                                     <ViewHeaderCart />
                                 </Badge>
-                            </div>  
-
-
+                            </div>
+                          
                             <div className="userOpcion">
                                 <ViewHeaderUser />
                             </div>
 
                             <SaleButton />
                             <SaleButton />
+                        </div>
 
-                        </div>
-                        <div className={classes.sectionMobile}>
-                            <IconButton
-                                aria-label="show more"
-                                aria-controls={mobileMenuId}
-                                aria-haspopup="true"
-                                onClick={desingActions.handleMobileMenuOpen}
-                                color="inherit"
-                            >
-                                <MoreIcon />
-                            </IconButton>
-                        </div>
                     </Toolbar>
-
-                    {renderMobileMenu}
-
                 </Container>
 
             </header>
@@ -124,7 +73,6 @@ function HeaderView() {
                     <Container>
                         <Grid xs={10}   >
                             <span style={{marginLeft : "20px"}}> <strong>categorias   | </strong></span>
-                        
                         </Grid>
                         </Container>
 

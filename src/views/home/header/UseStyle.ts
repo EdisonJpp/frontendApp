@@ -1,4 +1,3 @@
-import React from 'react';
 import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
 export function UseStyle() {
@@ -9,16 +8,18 @@ export function UseStyle() {
                 flexGrow: 1,
             },
             menuButton: {
-                marginLeft: theme.spacing(2),
-                [theme.breakpoints.down('md')]: {
-                    display: "none",    
+                // marginLeft: theme.spacing(2),
+                alignSelf: "center",
+                [theme.breakpoints.down('sm')]: {
+                    display: "none",
                 }
             },
             title: {
                 // display: 'none',
                 [theme.breakpoints.up('sm')]: {
-                    display: 'block',
-                    alignSelf : 'center'
+                    // display: 'block',
+                    alignSelf: 'center'
+
                 },
             },
             search: {
@@ -31,10 +32,18 @@ export function UseStyle() {
                 // marginRight: theme.spacing(2),
                 marginLeft: 0,
                 width: '100%',
+                display: "flex",
                 [theme.breakpoints.up('sm')]: {
                     marginLeft: theme.spacing(3),
-                    width: 'auto',
+                    width: '50%',
                 },
+            },
+            saleButtonMobil:{
+                // display : " flex",
+                [theme.breakpoints.up("sm")]: {
+                    display : "none" , 
+                },
+
             },
             searchIcon: {
                 padding: theme.spacing(0, 2),
@@ -47,6 +56,7 @@ export function UseStyle() {
             },
             inputRoot: {
                 color: 'inherit',
+                width : "100%"
             },
             inputInput: {
                 padding: theme.spacing(1, 1, 1, 0),
@@ -54,71 +64,47 @@ export function UseStyle() {
                 paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
                 transition: theme.transitions.create('width'),
                 border: "1px solid #3333",
-                width: '100%',
+                // width: '100%',
                 [theme.breakpoints.up('md')]: {
                     width: '50ch',
                     border: "1px solid #3333",
-                    borderRadius: " 5% ",
+                    borderRadius: "5%",
+                    // width: '100%',
                 },
             },
             sectionDesktop: {
                 display: 'none',
-                [theme.breakpoints.up('md')]: {
+                [theme.breakpoints.up('sm')]: {
+                    display: 'flex',
+                    justifyContent: 'space-between ',
+                    width: "100%",
+                    alignItems: "center",
+                },
+                [theme.breakpoints.up("md")]:{
                     display: 'flex',
                     justifyContent: 'space-between ',
                     width: "30%",
-                    alignItems : "center",  
-                },
-            },
-            sectionMobile: {
-                // display: 'flex',
-                // width : '100%',
-                // flexDirection: 'column',
-                [theme.breakpoints.up('md')]: {
-                    display: 'none',
+                    alignItems: "center",
+
                 }
             },
-            menuItemMovil :{
-                display : 'flex',
-                width : '260px',
-                justifyContent: 'space-between'
-                // flexDirection : 'column',
-                // marginTop : '5px',
-                // marginBottom :  '5px',
-            },
-            tolbar : {
+            tolbar: {
                 // borderBottom : "1px solid #3333",
-            }
+                paddingRight: "0% ",
+                paddingLeft: "0%",
+                display: "flex",
+                flexFlow: "wrap "
+        }
         }),
     );
 
-    const classes = useStyles();
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
-
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+const classes = useStyles();
 
 
 
-    const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null);
-    };
 
 
 
-    const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-        setMobileMoreAnchorEl(event.currentTarget);
-    };
 
-
-    return [
-        {
-            mobileMoreAnchorEl,
-            isMobileMenuOpen,
-            classes
-        },
-        {
-            handleMobileMenuClose,
-            handleMobileMenuOpen,
-            setMobileMoreAnchorEl,
-        }];
+return [{ classes }];
 } 
