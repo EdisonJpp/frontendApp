@@ -1,7 +1,7 @@
 import React from "react";
 import Toolbar from '@material-ui/core/Toolbar';
 import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
+// import Badge from '@material-ui/core/Badge';
 import SearchIcon from '@material-ui/icons/Search';
 import Container from '@material-ui/core/Container';
 import ViewHeaderCart from "../../../components/shopping-cart/right-header-view/RightHeaderView";
@@ -10,6 +10,7 @@ import SaleButton from "../../../components/buttons/sale-button/SaleButton";
 import CategoriesView from '../../../components/categories/category-options/CategoriesView';
 import { UseStyle } from "./UseStyle";
 import MobileOption from "../../../components/mobileSection/options/Index";
+
 
 function HeaderView() {
 
@@ -24,7 +25,7 @@ function HeaderView() {
 
                         <img width="170px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRjZ4IMbuFDVYFsDLvbl2eab6r7_iSZK265RV14OUgflw&usqp=CAU&ec=45699843" alt="edison" />
 
-                        <MobileOption />
+                        <MobileOption count={7} />
 
                         <div className={classes.saleButtonMobil} >
                         <SaleButton />
@@ -52,16 +53,14 @@ function HeaderView() {
 
                         <div className={classes.sectionDesktop}>
                             <div className="cart" >
-                                <Badge badgeContent={7} color="secondary">
-                                    <ViewHeaderCart />
-                                </Badge>
+                                    <ViewHeaderCart   count={7} />
                             </div>
                           
                             <div className="userOpcion">
                                 <ViewHeaderUser />
                             </div>
 
-                            <SaleButton />
+                            <SaleButton  />
                             <SaleButton />
                         </div>
 

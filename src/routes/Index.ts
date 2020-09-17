@@ -1,21 +1,30 @@
 
 import React from "react" ; 
 
-// const LazyButton = React.lazy(() => import("../components/buttons/sale-button/SaleButton"));
 const LazyViewHeaderUser = React.lazy(()=> import("../components/profile/profile-header-opctions/RightHeaderView"));
+const LazySignUpView = React.lazy(()=> import("../views/sign-up")); 
+const LazyHomeView = React.lazy(()=> import('../views/home'));
+
 
 const Routes = [
-    // {
-    //     path : "/" ,
-    //     component : LazyButton , 
-    //     exact : true , 
-    //     name : "Header"
-    // },
     {
-        path : "/hola" , 
-        component : LazyViewHeaderUser , 
+        name : 'Home',
+        path : '/',
         exact : true , 
-        name : "category" 
+        component : LazyHomeView
+        
+    },
+    {
+        name : "Categorias", 
+        path : "/hola" , 
+        exact : true , 
+        component : LazyViewHeaderUser , 
+    },
+    {
+        name : "Iniciar Session",
+        path : "/sign-up",
+        exact : true ,
+        component : LazySignUpView
     }
 ]; 
 

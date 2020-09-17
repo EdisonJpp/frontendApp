@@ -21,7 +21,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 
 type Anchor = 'left';
-export default function Options() {
+export default function Options( { count} : any ) {
 
   const [{ desing, state, open, toggleDrawer }, actions] = UseStyle();
 
@@ -39,7 +39,7 @@ export default function Options() {
           </ListItem>
 
           <ListItem button className={desing.flex} onClick={toggleDrawer(anchor, false)} >
-            <ListItemIcon>  <ViewHeaderCart /> </ListItemIcon>
+            <ListItemIcon>  <ViewHeaderCart  count={7}/> </ListItemIcon>
             <ListItemText primary={"Carrito"} />
           </ListItem>
 
